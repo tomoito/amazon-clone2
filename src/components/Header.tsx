@@ -16,6 +16,14 @@ const Header = () => {
   const router = useRouter();
   const items = useSelector(selectItems);
 
+  const sighUpFunc = () => {
+    if (!session) {
+      signIn();
+    } else {
+      signOut();
+    }
+  };
+
   console.log("hoge");
   return (
     <header className="w-screen sticky ">
@@ -42,15 +50,12 @@ const Header = () => {
 
         {/* Right */}
         <div className="flex text-white items-center text-xs space-x-4 mx-5 whitespace-nowrap">
-          <div
-            onClick={!session ? signIn : signOut}
-            className="cursor-pointer link"
-          >
+          <div onClick={() => sighUpFunc()} className="cursor-pointer link">
             <p>{session ? `HEllo ${session.user.name}` : `Hi Guest`}</p>
             <p className="font-extrabold md:text-sm">アカウントリスト</p>
           </div>
           <div
-            onClick={() => router.push(`/order`)}
+            onClick={() => session && router.push(`/order`)}
             className="cursor-pointer link"
           >
             <p>Returns</p>
