@@ -1,7 +1,5 @@
-// const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const stripe = require("stripe")(
-  "sk_test_51IwFcYDBBKyfRFrRZ6RCRwvZl7pQ3RXTGF027785d8NfQDzffsjtFN9n8BzAO5XAPsjQOscBl1GVBbR4qAGyRlQO00TlVQVnHd"
-);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
 export default async (req, res) => {
   const { items, email } = req.body;
   console.log("create-checkout-session");
@@ -10,7 +8,6 @@ export default async (req, res) => {
   console.log("☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
   console.log("☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
   console.log("☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
-  console.log(process.env.STRIPE_SECRET_KEY);
 
   const transformedItems = items.map((item) => ({
     description: item.description,
