@@ -16,8 +16,9 @@ const Checkout = () => {
   const stripePromise = loadStripe(process.env.stripe_public_key);
 
   const createCheckOut = async () => {
-    const stripe = await stripePromise;
     console.log(process.env.HOST);
+    console.log(process.env.stripe_public_key);
+    const stripe = await stripePromise;
 
     const checkoutSession = await axios.post(`/api/create-checkout-session`, {
       items: item,
