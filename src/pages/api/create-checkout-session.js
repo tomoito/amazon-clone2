@@ -27,8 +27,8 @@ export default async (req, res) => {
     mode: "payment",
     // success_url: `${process.env.HOST}/success`,
     // cancel_url: `${process.env.HOST}/checkout`,
-    success_url: `https://amazon-repro-3v9lmjcc9-tomoito.vercel.app/success`,
-    cancel_url: `https://amazon-repro-3v9lmjcc9-tomoito.vercel.app/checkout`,
+    success_url: "https://amazon-repro-3v9lmjcc9-tomoito.vercel.app/success",
+    cancel_url: "https://amazon-repro-3v9lmjcc9-tomoito.vercel.app/checkout",
     metadata: {
       email,
       images: JSON.stringify(items.map((item) => item.image)),
