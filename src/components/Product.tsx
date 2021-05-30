@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { StarIcon } from "@heroicons/react/solid";
+import { useDispatch } from "react-redux";
+import { selectItems, addToBasket } from "../slices/basketSlice";
+
 type Product = {
   id: number;
   title: string;
   price: number;
+  rating: number;
+  hasPrime: boolean;
   description: string;
   category: string;
   image: string;
@@ -22,17 +27,30 @@ const Product = ({
   category,
   image,
 }: Product) => {
+  const dispatch = useDispatch();
   const [rating, setRating] = useState<number>(
     Math.floor(Math.random() * (MAX_RATE - MIN_RATE + 1)) + MIN_RATE
   );
 
   const [hasPrime] = useState<boolean>(Math.random() < 0.5);
+  const addItem = () => {
+    const product = {
+      id,
+      title,
+      price,
+      rating,
+      hasPrime,
+      description,
+      category,
+      image,
+    };
+    dispatch(addToBasket(product));
+  };
   return (
     <div className="flex flex-col relative bg-white m-5 p-10 ">
       <div className="absolute top-2 right-2 text-xs italic text-gray-400">
         <p>{category}</p>
       </div>
-      <p>title:{category}</p>
       <Image src={image} height={300} width={200} objectFit="contain" />
       <h4 className=" my-3">{title}</h4>
 
@@ -44,7 +62,7 @@ const Product = ({
           ))}
       </div>
 
-      <p className="text-xs mt-2 mb-2  line-clamp-3"> {description}</p>
+      <p className="text-xs mt-2 mb-2  line-clamp-2"> {description}</p>
       <div className="mb-5 ">
         <Currency quantity={price} />
       </div>
@@ -54,7 +72,9 @@ const Product = ({
           <p className="text-xs text-gray-500">Free Next-day Delli</p>
         </div>
       )}
-      <button className="button">カードに入れる</button>
+      <button onClick={addItem} className="button ">
+        カードに入れる
+      </button>
     </div>
   );
 };

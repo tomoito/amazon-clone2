@@ -5,14 +5,24 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
+import { signIn, signout, signOut, useSession } from "next-auth/client";
+
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/basketSlice";
 
 const Header = () => {
+  const [session] = useSession();
+  const router = useRouter();
+  const items = useSelector(selectItems);
+
   console.log("hoge");
   return (
     <header className="w-screen sticky ">
       <div className=" w-screen flex items-center bg-amazon_blue p-2 flex-grow">
         <div className="flex item-center flex-grow sm:flex-grow-0">
           <Image
+            onClick={() => router.push(`/`)}
             src="https://amazon-press.jp/.imaging/AMZ_detail_asset_png/dam/c104a672-d691-42cd-aebc-cab83f8c3b12.png"
             width={150}
             height={40}
@@ -32,17 +42,26 @@ const Header = () => {
 
         {/* Right */}
         <div className="flex text-white items-center text-xs space-x-4 mx-5 whitespace-nowrap">
-          <div className="cursor-pointer link">
-            <p>伊藤ともつね</p>
+          <div
+            onClick={!session ? signIn : signOut}
+            className="cursor-pointer link"
+          >
+            <p>{session ? `HEllo ${session.user.name}` : `Hi Guest`}</p>
             <p className="font-extrabold md:text-sm">アカウントリスト</p>
           </div>
-          <div className="cursor-pointer link">
+          <div
+            onClick={() => router.push(`/order`)}
+            className="cursor-pointer link"
+          >
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">Order</p>
           </div>
-          <div className="cursor-pointer link relative flex items-center">
+          <div
+            onClick={() => router.push(`/checkout`)}
+            className="cursor-pointer link relative flex items-center"
+          >
             <span className=" absolute top-0 right-0  md:right-10 h-4 w-4 rounded-full  bg-yellow-300 text-center text-black">
-              4
+              {items.length}
             </span>
             <ShoppingCartIcon className="h-10  " />
             <p className="font-extrabold md:text-sm hidden md:inline mt-2  ">
