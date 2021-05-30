@@ -26,12 +26,12 @@ export default async (req, res) => {
     payment_method_types: ["card"],
     shipping_rates: ["shr_1IwKfoDBBKyfRFrRNramFJTT"],
     shipping_address_collection: {
-      allowed_countries: ["GB", "US"],
+      allowed_countries: ["GB", "US", "JP"],
     },
     line_items: transformedItems,
     mode: "payment",
-    success_url: "hs",
-    cancel_url: "checkout",
+    success_url: "https://amazon-repro-3v9lmjcc9-tomoito.vercel.app/success",
+    cancel_url: "https://amazon-repro-3v9lmjcc9-tomoito.vercel.app/checkout",
     metadata: {
       email,
       images: JSON.stringify(items.map((item) => item.image)),
