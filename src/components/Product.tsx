@@ -19,14 +19,7 @@ import Currency from "react-currency-formatter";
 const MAX_RATE = 5;
 const MIN_RATE = 1;
 
-const Product = ({
-  id,
-  title,
-  price,
-  description,
-  category,
-  image,
-}: Product) => {
+const Product = ({ id, title, price, description, category, image }) => {
   const dispatch = useDispatch();
   const [rating, setRating] = useState<number>(
     Math.floor(Math.random() * (MAX_RATE - MIN_RATE + 1)) + MIN_RATE
