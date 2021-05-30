@@ -17,6 +17,8 @@ const Checkout = () => {
   console.log("☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
   console.log("☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
   console.log(process.env.STRIPE_SECRET_KEY);
+  console.log(process.env.stripe_public_key);
+
   const [session] = useSession();
   const item = useSelector(selectItems);
   const total = useSelector(selectTotal);
