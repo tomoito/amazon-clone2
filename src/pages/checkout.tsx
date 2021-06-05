@@ -10,7 +10,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 
 const Checkout = () => {
-  console.log("create-checkout-session");
+  const hoge = "hogehoge";
+  console.log("create-checkout-session!!!!!");
+  console.log("create-checkout-session!!!!!");
+  console.log("create-checkout-session!!!!!");
   console.log(`${process.env.NEXT_PUBLIC_HOST}`);
   console.log(
     "Change_String☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆"
@@ -65,7 +68,9 @@ const Checkout = () => {
             height={250}
             objectFit="contain"
           />
+
           <div className="flex flex-col p-5 space-y-10 bg-white">
+            <p>{hoge}</p>
             <h1 className="text-3xl border-b pb-4">
               {item.length === 0
                 ? "ショッピングリスト"
