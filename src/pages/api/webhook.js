@@ -8,8 +8,8 @@ const app = !admin.apps.length
     })
   : admin.app();
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const endpointSecret = process.env.STRIPE_SIGNING_SECRET;
+const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+const endpointSecret = process.env.NEXT_PUBLIC_STRIPE_SIGNING_SECRET;
 
 const fulfilOrder = async (session) => {
   console.log("FulfilingOrder", session);

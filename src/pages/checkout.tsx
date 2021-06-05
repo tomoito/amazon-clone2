@@ -11,7 +11,7 @@ import axios from "axios";
 
 const Checkout = () => {
   console.log("create-checkout-session");
-  console.log(`${process.env.HOST}`);
+  console.log(`${process.env.NEXT_PUBLIC_HOST}`);
   console.log(
     "Change_String☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆"
   );
@@ -34,7 +34,7 @@ const Checkout = () => {
 
   const createCheckOut = async () => {
     console.log("check string Now");
-    console.log(`${process.env.HOST}`);
+    console.log(`${process.env.NEXT_PUBLIC_HOST}`);
     console.log(`${process.env.stripe_public_key}`);
     const stripe = await stripePromise;
 
