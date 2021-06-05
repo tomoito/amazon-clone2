@@ -24,11 +24,15 @@ const Checkout = () => {
   const [session] = useSession();
   const item = useSelector(selectItems);
   const total = useSelector(selectTotal);
-  const stripePromise = loadStripe(process.env.stripe_public_key);
+  // const stripePromise = loadStripe(process.env.stripe_public_key);
+  const stripePromise = loadStripe(
+    "pk_test_51IwFcYDBBKyfRFrR568yLnZCeJeDiQWPGYFLuxpH5xgEwZLRwEZ454RDVpDYDpuFVHeMUs8wKeMWGXuVXf5T3HyE00GT3SLZGQ"
+  );
 
   const createCheckOut = async () => {
-    console.log(process.env.HOST);
-    console.log(process.env.stripe_public_key);
+    console.log("check string Now");
+    console.log(`${process.env.HOST}`);
+    console.log(`${process.env.stripe_public_key}`);
     const stripe = await stripePromise;
 
     const checkoutSession = await axios.post(`/api/create-checkout-session`, {
