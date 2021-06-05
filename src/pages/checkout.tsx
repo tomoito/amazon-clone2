@@ -11,16 +11,9 @@ import axios from "axios";
 
 const Checkout = () => {
   const hoge = "hogehoge";
-  console.log("create-checkout-session!!!!!");
-  console.log("create-checkout-session!!!!!");
-  console.log("create-checkout-session!!!!!");
+
   console.log(`${process.env.NEXT_PUBLIC_HOST}`);
-  console.log(
-    "Change_String☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆"
-  );
-  console.log("☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
-  console.log("☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
-  console.log("☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
+
   // console.log(process.env.STRIPE_SECRET_KEY);
   // console.log(process.env.stripe_public_key);
 
@@ -59,6 +52,7 @@ const Checkout = () => {
   return (
     <div className="bg-gray-100">
       <Header />
+
       <main className="lg:flex max-w-screen-2xl mx-auto ">
         {/* Left */}
         <div className="flex-grow m-5 shadow-sm">
@@ -70,7 +64,6 @@ const Checkout = () => {
           />
 
           <div className="flex flex-col p-5 space-y-10 bg-white">
-            <p>{hoge}</p>
             <h1 className="text-3xl border-b pb-4">
               {item.length === 0
                 ? "ショッピングリスト"
