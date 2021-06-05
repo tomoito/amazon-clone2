@@ -25,9 +25,12 @@ const Checkout = () => {
   const item = useSelector(selectItems);
   const total = useSelector(selectTotal);
   // const stripePromise = loadStripe(process.env.stripe_public_key);
-  const stripePromise = loadStripe(
-    "pk_test_51IwFcYDBBKyfRFrR568yLnZCeJeDiQWPGYFLuxpH5xgEwZLRwEZ454RDVpDYDpuFVHeMUs8wKeMWGXuVXf5T3HyE00GT3SLZGQ"
-  );
+  // const stripePromise = loadStripe(
+  //   "pk_test_51IwFcYDBBKyfRFrR568yLnZCeJeDiQWPGYFLuxpH5xgEwZLRwEZ454RDVpDYDpuFVHeMUs8wKeMWGXuVXf5T3HyE00GT3SLZGQ"
+  // );
+
+  const stripePromise = loadStripe(`${process.env.stripe_public_key}`);
+  console.log("hogehoge");
 
   const createCheckOut = async () => {
     console.log("check string Now");
